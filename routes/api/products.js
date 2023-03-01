@@ -20,14 +20,14 @@ router.post(
   ctrlWrapper(ctrl.add)
 );
 
-router.delete('/:productId', isValidId, ctrlWrapper(ctrl.removeById));
+// router.delete('/:productId', isValidId, ctrlWrapper(ctrl.removeById));
 
-router.put(
-  '/:productId',
-  isValidId,
-  validation(productSchema.updateProductSchema),
-  ctrlWrapper(ctrl.updateById)
-);
+// router.put(
+//   '/:productId',
+//   isValidId,
+//   validation(productSchema.updateProductSchema),
+//   ctrlWrapper(ctrl.updateById)
+// );
 
 router.patch(
   '/product_img',
