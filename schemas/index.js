@@ -1,5 +1,5 @@
-const userSchema = require('./user');
+const productSchema = require('./product');
 
 module.exports = {
-  userSchema,
+  productSchema,
 };

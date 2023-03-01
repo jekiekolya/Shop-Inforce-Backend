@@ -1,12 +1,13 @@
-const { User } = require('../../models');
 const fs = require('fs/promises');
 const jimp = require('jimp');
+const uniqid = require('uniqid');
 const { BadRequest } = require('http-errors');
+
 const { uploadFileToCloudinary } = require('../../helpers');
 
-const updateAvatar = async (req, res) => {
+const updateProductImg = async (req, res) => {
   if (!req.file) {
-    throw new BadRequest('Avatar not attach');
+    throw new BadRequest('Img not attach');
   }
 
   const { path: tempUpload } = req.file;
@@ -22,19 +23,17 @@ const updateAvatar = async (req, res) => {
         jimp.HORIZONTAL_ALIGN_CENTER || jimp.VERTICAL_ALIGN_MIDDLE
       )
       .writeAsync(req.file.path);
-
     // Upload file to cloud service
-    const { secure_url: avatarURL, public_id: idCloudAvatar } =
-      await uploadFileToCloudinary(tempUpload, req.user.idCloudAvatar);
+    const { secure_url: productImgURL, public_id: idCloudProductImg } =
+      await uploadFileToCloudinary(tempUpload, uniqid());
     await fs.unlink(tempUpload);
-
-    await User.findByIdAndUpdate(req.user._id, { avatarURL, idCloudAvatar });
 
     res.json({
       status: 'success',
       code: 200,
       data: {
-        avatarURL,
+        productImgURL,
+        idCloudProductImg,
       },
     });
   } catch (error) {
@@ -43,4 +42,4 @@ const updateAvatar = async (req, res) => {
   }
 };
 
-module.exports = updateAvatar;
+module.exports = updateProductImg;
