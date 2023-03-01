@@ -22,12 +22,12 @@ router.post(
 
 router.delete('/:productId', isValidId, ctrlWrapper(ctrl.removeById));
 
-// router.put(
-//   '/:productId',
-//   isValidId,
-//   validation(productSchema.updateProductSchema),
-//   ctrlWrapper(ctrl.updateById)
-// );
+router.patch(
+  '/:productId',
+  isValidId,
+  validation(productSchema.updateProductSchema),
+  ctrlWrapper(ctrl.updateById)
+);
 
 router.patch(
   '/product_img',

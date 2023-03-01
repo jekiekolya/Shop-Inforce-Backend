@@ -1,7 +1,7 @@
 const { NotFound } = require('http-errors');
 const { Product } = require('../../models');
 
-const removeById = async (req, res, next) => {
+const removeById = async (req, res) => {
   const { productId } = req.params;
 
   const deletedId = await Product.findByIdAndRemove(productId);
