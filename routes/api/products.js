@@ -20,7 +20,7 @@ router.post(
   ctrlWrapper(ctrl.add)
 );
 
-// router.delete('/:productId', isValidId, ctrlWrapper(ctrl.removeById));
+router.delete('/:productId', isValidId, ctrlWrapper(ctrl.removeById));
 
 // router.put(
 //   '/:productId',
