@@ -4,6 +4,10 @@ const { handleMongooseError } = require('../helpers');
 
 const commentSchema = Schema(
   {
+    id: {
+      type: String,
+      require: true,
+    },
     productId: {
       type: String,
       require: true,
@@ -15,8 +19,8 @@ const commentSchema = Schema(
       required: [true, 'Set description for comment'],
     },
     date: {
-      type: Date,
-      default: Date.now,
+      type: String,
+      default: Date.now.toString(),
     },
   },
   {

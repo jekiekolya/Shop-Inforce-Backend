@@ -88,7 +88,26 @@ const updateProductSchema = Joi.object({
     'any.required': `missing fields`,
   });
 
+// Comments
+const addCommentSchema = Joi.object({
+  description: Joi.string().trim().min(2).max(200).required().messages({
+    'string.base': `{{#label}} should be a type of string`,
+    'string.empty': `{{#label}} must contain value`,
+    'string.min': `{{#label}} should have a minimum length of 6`,
+    'string.max': `{{#label}} should have a maximum length of 70`,
+  }),
+  date: Joi.string().trim().messages({
+    'string.base': `{{#label}} should be a type of string`,
+    'string.empty': `{{#label}} must contain value`,
+  }),
+})
+  .required()
+  .messages({
+    'any.required': `missing fields`,
+  });
+
 module.exports = {
   addProductSchema,
   updateProductSchema,
+  addCommentSchema,
 };

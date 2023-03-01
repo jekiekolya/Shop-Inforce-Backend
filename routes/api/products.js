@@ -35,4 +35,18 @@ router.patch(
   ctrlWrapper(ctrl.updateImg)
 );
 
+// Comments to post
+router.post(
+  '/comment/:productId',
+  isValidId,
+  validation(productSchema.addCommentSchema),
+  ctrlWrapper(ctrl.addComment)
+);
+
+router.delete(
+  '/comment/:productId/:commentId',
+  isValidId,
+  ctrlWrapper(ctrl.removeComment)
+);
+
 module.exports = router;
