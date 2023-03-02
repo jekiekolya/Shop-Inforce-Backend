@@ -29,7 +29,7 @@ router.patch(
   ctrlWrapper(ctrl.updateById)
 );
 
-router.patch(
+router.post(
   '/product_img',
   upload.single('product_img'),
   ctrlWrapper(ctrl.updateImg)

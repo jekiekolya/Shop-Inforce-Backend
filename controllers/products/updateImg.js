@@ -23,6 +23,7 @@ const updateProductImg = async (req, res) => {
         jimp.HORIZONTAL_ALIGN_CENTER || jimp.VERTICAL_ALIGN_MIDDLE
       )
       .writeAsync(req.file.path);
+
     // Upload file to cloud service
     const { secure_url: productImgURL, public_id: idCloudProductImg } =
       await uploadFileToCloudinary(tempUpload, uniqid());
