@@ -13,7 +13,7 @@ const productSchema = Schema(
     name: {
       type: String,
       minlength: 2,
-      maxlength: 70,
+      maxlength: 200,
       required: [true, 'Set name for product'],
     },
     count: {

@@ -5,7 +5,7 @@ const addProductSchema = Joi.object({
   imageUrl: Joi.string().trim().messages({
     'string.base': `{{#label}} should be a type of string`,
   }),
-  name: Joi.string().trim().min(6).max(70).required().messages({
+  name: Joi.string().trim().min(2).max(200).required().messages({
     'string.base': `{{#label}} should be a type of string`,
     'string.empty': `{{#label}} must contain value`,
     'string.min': `{{#label}} should have a minimum length of 6`,
@@ -52,7 +52,7 @@ const updateProductSchema = Joi.object({
   imageUrl: Joi.string().trim().messages({
     'string.base': `{{#label}} should be a type of string`,
   }),
-  name: Joi.string().trim().min(6).max(70).messages({
+  name: Joi.string().trim().min(2).max(200).messages({
     'string.base': `{{#label}} should be a type of string`,
     'string.empty': `{{#label}} must contain value`,
     'string.min': `{{#label}} should have a minimum length of 6`,
